@@ -7,9 +7,10 @@ function addClassInput(a, r) {
   inputEl.classList.add(a);
   inputEl.classList.remove(r);
 }
-function onInputBlur(event) {
-  const inputText = event.target.value;
-  if (inputText.length == dataLength) {
+function onInputBlur({ target }) {
+  const inputText = target.value;
+  console.log(+target.dataset.length);
+  if (inputText.length == +target.dataset.length) {
     addClassInput("valid", "invalid");
   } else {
     addClassInput("invalid", "valid");
